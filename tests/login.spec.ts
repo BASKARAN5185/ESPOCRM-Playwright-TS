@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { LoginPage } from '../pages/LoginPage.spec';
+import { LoginPage } from '../page/LoginPage.spec';
 
 test.describe('EspoCRM Login Tests', () => {
 
