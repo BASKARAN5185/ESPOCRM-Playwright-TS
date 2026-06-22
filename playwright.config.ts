@@ -3,26 +3,28 @@ import { defineConfig, devices } from '@playwright/test';
 import process from 'process';
 
 export default defineConfig({
-testDir: './tests',
+    testDir: './tests',
 
-fullyParallel: true,
+    fullyParallel: true,
 
-forbidOnly: !!process.env.CI,
+    forbidOnly: !!process.env.CI,
 
-retries: process.env.CI ? 2 : 0,
+    retries: process.env.CI ? 2 : 0,
 
-workers: process.env.CI ? 2 : undefined,
+    workers: process.env.CI ? 2 : undefined,
 
-reporter: 'html',
+    reporter: 'html',
 
-use: {
-trace: 'on-first-retry',
-},
+    use: {
+        baseURL: 'https://demo.espocrm.com',
+        headless: true,
+        trace: 'on-first-retry',
+    },
 
-projects: [
-{
-name: 'chromium',
-use: { ...devices['Desktop Chrome'] },
-},
-],
+    projects: [
+        {
+            name: 'chromium',
+            use: { ...devices['Desktop Chrome'] },
+        },
+    ],
 });
