@@ -1,16 +1,16 @@
 import { test, expect } from '@playwright/test';
 import { LoginPage } from '../page/LoginPage.spec';
-import { MenuPage } from '../page/MenuPage.spec';
+import { MenuComponent} from '../page/MenuPage.spec';
 
 test.describe('Menu Navigation Tests', () => {
 
     let loginPage: LoginPage;
-    let menuPage: MenuPage;
+    let menuPage: MenuComponent;
 
     test.beforeEach(async ({ page }) => {
 
         loginPage = new LoginPage(page);
-        menuPage = new MenuPage(page);
+        menuPage = new MenuComponent(page);
 
         await loginPage.navigateToLoginPage();
         await loginPage.loginAsAdmin();
