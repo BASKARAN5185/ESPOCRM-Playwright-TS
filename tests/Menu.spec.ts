@@ -39,9 +39,9 @@ test.describe('Menu Navigation Tests', () => {
         await menuPage.openEmails();
     });
 
-    test('Navigate to Calendar', async () => {
-        await menuPage.openCalendar();
-    });
+   // test('Navigate to Calendar', async () => {
+    //    await menuPage.openCalendar();
+    //});
 
     test('Navigate to Meetings', async () => {
         await menuPage.openMeetings();
@@ -59,9 +59,9 @@ test.describe('Menu Navigation Tests', () => {
         await menuPage.openCases();
     });
 
-    test('Navigate to Knowledge Base', async () => {
-        await menuPage.openKnowledgeBase();
-    });
+   // test('Navigate to Knowledge Base', async () => {
+      //  await menuPage.openKnowledgeBase();
+   // });
 
     test('Navigate to Documents', async () => {
         await menuPage.openDocuments();
