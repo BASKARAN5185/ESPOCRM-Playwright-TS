@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { LoginPage } from '../page/LoginPage.spec';
-import { MenuComponent} from '../page/MenuPage.spec';
+import { MenuComponent} from '../page/MenuComponent.spec';
 
 test.describe('Menu Navigation Tests', () => {
 
