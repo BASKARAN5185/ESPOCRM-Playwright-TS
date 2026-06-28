@@ -24,7 +24,7 @@ export default defineConfig({
     projects: [
         {
             name: 'setup',
-           testMatch: /auth\.setup\.ts/,
+           
         },
 
         {
