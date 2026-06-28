@@ -1,6 +1,6 @@
 import { Page, Locator } from '@playwright/test';
 
-export class MenuPage {
+export class MenuComponent{
 
     readonly page: Page;
 
