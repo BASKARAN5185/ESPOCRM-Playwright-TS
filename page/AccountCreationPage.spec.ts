@@ -148,4 +148,69 @@ export class AccountCreationPage {
   async clickCancel() {
     await this.cancelButton.click();
   }
+
+  async accountCreation(account: {
+    name?: string;
+    website?: string;
+    email?: string;
+    phone?: string;
+    street?: string;
+    billingStreet?: string;
+    billingCity?: string;
+    billingState?: string;
+    billingPostalCode?: string;
+    billingCountry?: string;
+    shippingStreet?: string;
+    shippingCity?: string;
+    shippingState?: string;
+    shippingPostalCode?: string;
+    shippingCountry?: string;
+    typeDropdown?: string;
+    industry?: string;
+    description?: string;
+    assignedUser?: string;
+    teams?: string;
+
+  }) {
+    if(account.name)
+      await this.enterName(account.name);
+     if(account.website)
+      await this.enterWebsite(account.website);
+     if(account.email)
+      await this.enterEmail(account.email);
+      if(account.phone)
+      await this.enterPhone(account.phone);
+     if(account.billingStreet)
+      await this.enterBillingStreet(account.billingStreet);
+      if(account.billingCity)
+      await this.enterBillingCity(account.billingCity);
+      if(account.billingState)
+      await this.enterBillingState(account.billingState);
+      if(account.billingPostalCode)
+      await this.enterBillingPostalCode(account.billingPostalCode);
+      if(account.billingCountry)
+      await this.enterBillingCountry(account.billingCountry);
+      if(account.shippingStreet)
+      await this.enterShippingStreet(account.shippingStreet);
+      if(account.shippingCity)
+      await this.enterShippingCity(account.shippingCity);
+      if(account.shippingState)
+      await this.enterShippingState(account.shippingState);
+      if(account.shippingPostalCode)
+      await this.enterShippingPostalCode(account.shippingPostalCode);
+      if(account.shippingCountry)
+      await this.enterShippingCountry(account.shippingCountry);
+      if(account.typeDropdown)
+      await this.selectType(account.typeDropdown);
+      if(account.industry)
+      await this.selectIndustry(account.industry);
+      if(account.description)
+      await this.enterDescription(account.description);
+      if(account.assignedUser)
+      await this.enterAssignedUser(account.assignedUser);
+      if(account.teams)
+      await this.enterTeam(account.teams);
+       
+      await this.clickSave();
+  }
 }
