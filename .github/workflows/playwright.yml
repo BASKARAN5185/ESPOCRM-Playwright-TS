@@ -2,30 +2,22 @@ name: Playwright CI/CD Pipeline
 
 on:
   push:
-    branches:
-      - main
-      - master
-
+    branches: [main, master]
   pull_request:
-    branches:
-      - main
-      - master
+    branches: [main, master]
 
 permissions:
   contents: read
 
 jobs:
-  playwright-tests:
-    name: Run Playwright Tests
+  smoke-tests:
+    name: Smoke Tests
     runs-on: ubuntu-latest
-    timeout-minutes: 60
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
@@ -36,48 +28,49 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: Verify Playwright Installation
+      - name: Verify Playwright
         run: npx playwright --version
 
-      - name: Run Playwright Tests
-        run: npx playwright test
+      - name: Run Smoke Tests
+        run: npx playwright test --grep @Smoke
 
-      - name: Upload HTML Report
+      - name: Upload Smoke Report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: playwright-html-report
+          name: smoke-playwright-report
           path: playwright-report/
           retention-days: 30
 
-      - name: Upload JUnit Results
+  regression-tests:
+    name: Regression Tests
+    needs: smoke-tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      - name: Verify Playwright
+        run: npx playwright --version
+
+      - name: Run Regression Tests
+        run: npx playwright test --grep @Regression
+
+      - name: Upload Regression Report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: junit-results
-          path: test-results/
-          retention-days: 30
-
-      - name: Upload Failure Screenshots
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: failure-screenshots
-          path: test-results/
-          retention-days: 30
-
-      - name: Upload Failure Videos
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: failure-videos
-          path: test-results/
-          retention-days: 30
-
-      - name: Upload Playwright Traces
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: playwright-traces
-          path: test-results/
+          name: regression-playwright-report
+          path: playwright-report/
           retention-days: 30
