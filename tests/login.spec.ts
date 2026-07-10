@@ -3,21 +3,21 @@ import { LoginPage } from '../page/LoginPage.spec';
 
 test.describe('EspoCRM Login Tests', () => {
 
-  test('Verify login page elements', async ({ page }) => {
-    const loginPage = new LoginPage(page);
+  test('@P1 @Smoke Verify login page elements', async ({ page }) => {
+  const loginPage = new LoginPage(page);
 
-    await loginPage.navigateToLoginPage();
-    await loginPage.verifyLoginPageLoaded();
-  });
+  await loginPage.navigateToLoginPage();
+  await loginPage.verifyLoginPageLoaded();
+});
 
-  test('Login as Administrator', async ({ page }) => {
-    const loginPage = new LoginPage(page);
+test('@P0 @Smoke @Login Login as Administrator', async ({ page }) => {
+  const loginPage = new LoginPage(page);
 
-    await loginPage.navigateToLoginPage();
-    await loginPage.loginAsAdmin();
+  await loginPage.navigateToLoginPage();
+  await loginPage.loginAsAdmin();
 
-    // Verify successful login
-    await expect(page).not.toHaveURL(/login/);
-  });
+  // Verify successful login
+  await expect(page).not.toHaveURL(/login/);
+});
 
 });
