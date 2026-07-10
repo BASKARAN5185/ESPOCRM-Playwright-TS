@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
 import { LoginPage } from '../page/LoginPage.spec';
-import { MenuComponent} from '../page/MenuComponent.spec';
+import { MenuComponent } from '../page/MenuComponent.spec';
 
-test.describe('Menu Navigation Tests', () => {
+test.describe('@Regression @Navigation Menu Navigation Tests', () => {
 
     let loginPage: LoginPage;
     let menuPage: MenuComponent;
@@ -19,51 +19,51 @@ test.describe('Menu Navigation Tests', () => {
         await expect(page).not.toHaveURL(/login/);
     });
 
-    test('Navigate to Accounts', async () => {
+    test('@P1 @Menu Navigate to Accounts', async () => {
         await menuPage.openAccounts();
     });
 
-    test('Navigate to Contacts', async () => {
+    test('@P1 @Menu Navigate to Contacts', async () => {
         await menuPage.openContacts();
     });
 
-    test('Navigate to Leads', async () => {
+    test('@P1 @Menu Navigate to Leads', async () => {
         await menuPage.openLeads();
     });
 
-    test('Navigate to Opportunities', async () => {
+    test('@P1 @Menu Navigate to Opportunities', async () => {
         await menuPage.openOpportunities();
     });
 
-    test('Navigate to Emails', async () => {
+    test('@P2 @Menu Navigate to Emails', async () => {
         await menuPage.openEmails();
     });
 
-   // test('Navigate to Calendar', async () => {
-    //    await menuPage.openCalendar();
-    //});
+    // test('@P2 @Menu Navigate to Calendar', async () => {
+    //     await menuPage.openCalendar();
+    // });
 
-    test('Navigate to Meetings', async () => {
+    test('@P2 @Menu Navigate to Meetings', async () => {
         await menuPage.openMeetings();
     });
 
-    test('Navigate to Calls', async () => {
+    test('@P2 @Menu Navigate to Calls', async () => {
         await menuPage.openCalls();
     });
 
-    test('Navigate to Tasks', async () => {
+    test('@P2 @Menu Navigate to Tasks', async () => {
         await menuPage.openTasks();
     });
 
-    test('Navigate to Cases', async () => {
+    test('@P2 @Menu Navigate to Cases', async () => {
         await menuPage.openCases();
     });
 
-   // test('Navigate to Knowledge Base', async () => {
-      //  await menuPage.openKnowledgeBase();
-   // });
+    // test('@P3 @Menu Navigate to Knowledge Base', async () => {
+    //     await menuPage.openKnowledgeBase();
+    // });
 
-    test('Navigate to Documents', async () => {
+    test('@P2 @Menu Navigate to Documents', async () => {
         await menuPage.openDocuments();
     });
 

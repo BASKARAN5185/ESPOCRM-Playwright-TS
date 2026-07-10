@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { LoginPage } from '../page/LoginPage.spec';
 
-test.describe('EspoCRM Login Tests', () => {
+test.describe('@Smoke @Login EspoCRM Login Tests', () => {
 
   test('@P1 @Smoke Verify login page elements', async ({ page }) => {
   const loginPage = new LoginPage(page);
