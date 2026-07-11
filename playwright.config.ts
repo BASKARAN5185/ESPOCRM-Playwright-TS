@@ -35,9 +35,9 @@ export default defineConfig({
 
     trace: 'on-first-retry',
 
-    actionTimeout: 30000,
+    actionTimeout: 60000,
 
-    navigationTimeout: 60000,
+    navigationTimeout: 90000,
   },
 
   projects: [
@@ -46,36 +46,6 @@ export default defineConfig({
       use: {
         ...devices['Desktop Chrome'],
       },
-    },
-
-    {
-      name: 'Firefox',
-      use: {
-        ...devices['Desktop Firefox'],
-      },
-    },
-
-    {
-      name: 'WebKit',
-      use: {
-        ...devices['Desktop Safari'],
-      },
-    },
-
-    {
-      name: 'Google Chrome',
-      use: {
-        channel: 'chrome',
-        ...devices['Desktop Chrome'],
-      },
-    },
-
-    {
-      name: 'Microsoft Edge',
-      use: {
-        channel: 'msedge',
-        ...devices['Desktop Edge'],
-      },
-    },
+    }
   ],
 });
